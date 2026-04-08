@@ -10,17 +10,18 @@ import {
   CylinderCollider,
   RapierRigidBody,
 } from "@react-three/rapier";
+import { withBase } from "../utils/asset";
 
 const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
-  "/images/skill-python.svg",
-  "/images/skill-cpp.svg",
-  "/images/skill-javascript.svg",
-  "/images/skill-node.svg",
-  "/images/skill-mongodb.svg",
-  "/images/skill-mysql.svg",
-  "/images/skill-aws.svg",
-  "/images/skill-blender.svg",
+  withBase("/images/skill-python.svg"),
+  withBase("/images/skill-cpp.svg"),
+  withBase("/images/skill-javascript.svg"),
+  withBase("/images/skill-node.svg"),
+  withBase("/images/skill-mongodb.svg"),
+  withBase("/images/skill-mysql.svg"),
+  withBase("/images/skill-aws.svg"),
+  withBase("/images/skill-blender.svg"),
 ];
 const textures = imageUrls.map((url) => textureLoader.load(url));
 
@@ -199,7 +200,7 @@ const TechStack = () => {
           ))}
         </Physics>
         <Environment
-          files="/models/char_enviorment.hdr"
+          files={withBase("/models/char_enviorment.hdr")}
           environmentIntensity={0.5}
           environmentRotation={[0, 4, 2]}
         />

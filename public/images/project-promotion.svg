@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Employee Promotion Prediction</title>
+  <desc id="desc">A dashboard-style project cover for a machine learning prediction model.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#140a1f"/>
+      <stop offset="55%" stop-color="#231139"/>
+      <stop offset="100%" stop-color="#0d3a44"/>
+    </linearGradient>
+    <linearGradient id="chart" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#5eead4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <text x="88" y="128" fill="#93c5fd" font-size="22" font-family="Arial, sans-serif" letter-spacing="5">MACHINE LEARNING</text>
+  <text x="88" y="214" fill="#ffffff" font-size="62" font-family="Arial, sans-serif" font-weight="700">Promotion</text>
+  <text x="88" y="288" fill="#ffffff" font-size="62" font-family="Arial, sans-serif" font-weight="700">Prediction</text>
+  <text x="88" y="360" fill="#c6d4e1" font-size="24" font-family="Arial, sans-serif">Logistic Regression, Decision Trees, and data preprocessing</text>
+  <rect x="654" y="116" width="440" height="488" rx="34" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)"/>
+  <polyline points="714,492 794,430 858,450 930,332 1008,264" fill="none" stroke="url(#chart)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="714" cy="492" r="12" fill="#67e8f9"/>
+  <circle cx="794" cy="430" r="12" fill="#67e8f9"/>
+  <circle cx="858" cy="450" r="12" fill="#67e8f9"/>
+  <circle cx="930" cy="332" r="12" fill="#67e8f9"/>
+  <circle cx="1008" cy="264" r="12" fill="#67e8f9"/>
+  <rect x="716" y="188" width="112" height="112" rx="24" fill="rgba(34,211,238,0.12)" stroke="rgba(34,211,238,0.4)"/>
+  <text x="749" y="256" fill="#67e8f9" font-size="42" font-family="Arial, sans-serif" font-weight="700">ML</text>
+  <rect x="860" y="188" width="186" height="112" rx="24" fill="rgba(94,234,212,0.12)" stroke="rgba(94,234,212,0.4)"/>
+  <text x="890" y="235" fill="#d1fae5" font-size="20" font-family="Arial, sans-serif">Scikit-learn</text>
+  <text x="890" y="269" fill="#d1fae5" font-size="20" font-family="Arial, sans-serif">Pandas</text>
+</svg>

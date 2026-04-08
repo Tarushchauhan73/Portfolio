@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Web-Based File Sharing Platform</title>
+  <desc id="desc">A futuristic card for Tarush Chauhan's secure file sharing project.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07131a"/>
+      <stop offset="50%" stop-color="#0c2730"/>
+      <stop offset="100%" stop-color="#113742"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#2dd4bf"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <rect x="64" y="64" width="1072" height="592" rx="36" fill="none" stroke="rgba(255,255,255,0.18)"/>
+  <rect x="96" y="96" width="440" height="528" rx="26" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)"/>
+  <text x="96" y="170" fill="#99f6e4" font-size="22" font-family="Arial, sans-serif" letter-spacing="5">SECURE WEB APP</text>
+  <text x="96" y="250" fill="#ffffff" font-size="58" font-family="Arial, sans-serif" font-weight="700">File Sharing</text>
+  <text x="96" y="320" fill="#ffffff" font-size="58" font-family="Arial, sans-serif" font-weight="700">Platform</text>
+  <text x="96" y="390" fill="#b6c9cf" font-size="24" font-family="Arial, sans-serif">Role-based authentication</text>
+  <text x="96" y="430" fill="#b6c9cf" font-size="24" font-family="Arial, sans-serif">Protected APIs</text>
+  <text x="96" y="470" fill="#b6c9cf" font-size="24" font-family="Arial, sans-serif">Privacy-focused file handling</text>
+  <rect x="650" y="160" width="320" height="400" rx="28" fill="rgba(6,24,30,0.82)" stroke="url(#accent)" stroke-width="2"/>
+  <rect x="690" y="210" width="240" height="46" rx="12" fill="rgba(45,212,191,0.14)"/>
+  <text x="715" y="240" fill="#d1fae5" font-size="20" font-family="Arial, sans-serif">AUTHENTICATED SESSION</text>
+  <rect x="690" y="292" width="180" height="18" rx="9" fill="#12303a"/>
+  <rect x="690" y="332" width="220" height="18" rx="9" fill="#12303a"/>
+  <rect x="690" y="372" width="160" height="18" rx="9" fill="#12303a"/>
+  <rect x="690" y="438" width="160" height="52" rx="16" fill="url(#accent)"/>
+  <text x="724" y="472" fill="#03141b" font-size="22" font-family="Arial, sans-serif" font-weight="700">UPLOAD</text>
+</svg>

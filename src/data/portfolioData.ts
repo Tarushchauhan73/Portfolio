@@ -1,4 +1,52 @@
-export const portfolioData = {
+type Project = {
+  title: string;
+  category: string;
+  tools: string;
+  image: string;
+  link?: string;
+};
+
+type PortfolioData = {
+  name: {
+    first: string;
+    last: string;
+    initials: string;
+  };
+  hero: {
+    greeting: string;
+    eyebrow: string;
+    primary: string;
+    secondary: string;
+  };
+  about: string;
+  focusAreas: {
+    title: string;
+    subtitle: string;
+    description: string;
+    tags: string[];
+  }[];
+  timeline: {
+    title: string;
+    organization: string;
+    period: string;
+    description: string;
+  }[];
+  projects: Project[];
+  contact: {
+    email: string;
+    phone: string;
+    location: string;
+    linkedin: string;
+    github: string;
+    leetcode: string;
+    codeforces: string;
+  };
+  education: string[];
+  certifications: string[];
+  achievements: string[];
+};
+
+export const portfolioData: PortfolioData = {
   name: {
     first: "Tarush",
     last: "Chauhan",

@@ -9,8 +9,9 @@ nst env = globalThis as typeof globalThis & {
 
 const repositoryName = env.process?.env?.GITHUB_REPOSITORY?.split("/")[1];
 const githubPagesBase =
-  env.process?.env?.GITHUB_ACTIONS && repositoryName ? `/${repositoryName}/` : "/";
-
+env.process?.env?.GITHUB_ACTIONS && repositoryName
+    ? `/${repositoryName}/`
+    : "/";
 export default defineConfig({
   base: githubPagesBase,
   plugins: [react()],

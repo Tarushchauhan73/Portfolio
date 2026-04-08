@@ -88,6 +88,6 @@ GitHub Actions will build and deploy the site automatically.
 - Codeforces: [codeforces.com/profile/tarushchauhan19](https://codeforces.com/profile/tarushchauhan19)
 
 ## Credits
+Tarush chauhan
 
-- Original design inspiration: [akashrmalhotra/3d-portfolio](https://github.com/akashrmalhotra/3d-portfolio)
-- Customized and adapted for Tarush Chauhan
+

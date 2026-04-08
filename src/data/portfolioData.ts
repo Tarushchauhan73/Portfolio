@@ -130,6 +130,7 @@ export const portfolioData: PortfolioData = {
       tools:
         "Node.js, MongoDB, HTML, CSS, JavaScript, role-based authentication, protected APIs, encryption-focused file handling",
       image: "/images/project-file-sharing.svg",
+      link: undefined,
     },
     {
       title: "Employee Promotion Prediction",
@@ -137,24 +138,11 @@ export const portfolioData: PortfolioData = {
       tools:
         "Python, Pandas, Scikit-learn, Logistic Regression, Decision Trees, preprocessing and model evaluation",
       image: "/images/project-promotion.svg",
+      link: undefined,
     },
     {
       title: "Hospital Healthcare System",
       category: "Research Paper and System Design",
-       tools:
-        "Node.js, MongoDB, HTML, CSS, JavaScript, role-based authentication, protected APIs, encryption-focused file handling",
-      image: "/images/project-file-sharing.svg",
-      link: undefined,
-    },
-    {
-      title: "Employee Promotion Prediction",
-      tools:
-        "Python, Pandas, Scikit-learn, Logistic Regression, Decision Trees, preprocessing and model evaluation",
-      image: "/images/project-promotion.svg",
-      link: undefined,
-    },
-    {
-      title: "Hospital Healthcare System",
       tools:
         "Research, literature review, architecture design, technical writing, LaTeX, documentation workflows",
       image: "/images/project-healthcare.svg",
@@ -162,6 +150,7 @@ export const portfolioData: PortfolioData = {
     },
     {
       title: "3D Car Animation Project",
+      category: "Blender 3D Workflow",
       tools:
         "Blender, modeling, texturing, keyframing, shader editing, animation scene composition",
       image: "/images/project-car.svg",

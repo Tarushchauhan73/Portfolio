@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import "./styles/Navbar.css";
 import { portfolioData } from "../data/portfolioData";
+import { withBase } from "../utils/asset";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
 export let smoother: ScrollSmoother;
@@ -43,7 +44,7 @@ const Navbar = () => {
   return (
     <>
       <div className="header">
-        <a href="/#" className="navbar-title" data-cursor="disable">
+        <a href={withBase("/#")} className="navbar-title" data-cursor="disable">
           {portfolioData.name.initials}
         </a>
         <a

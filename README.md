@@ -89,5 +89,6 @@ GitHub Actions will build and deploy the site automatically.
 
 ## Credits
 Tarush chauhan
+Link of deployed Poerfolio-https://tarushchauhan73.github.io/Portfolio/
 
 

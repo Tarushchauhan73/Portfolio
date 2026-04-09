@@ -87,8 +87,7 @@ GitHub Actions will build and deploy the site automatically.
 - LeetCode: [leetcode.com/u/Tarushchauhan](https://leetcode.com/u/Tarushchauhan)
 - Codeforces: [codeforces.com/profile/tarushchauhan19](https://codeforces.com/profile/tarushchauhan19)
 
-## Credits
-Tarush chauhan
-Link of deployed Poerfolio-https://tarushchauhan73.github.io/Portfolio/
+
+Link of deployed Portfolio - https://tarushchauhan73.github.io/Portfolio/
 
 

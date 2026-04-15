@@ -38,7 +38,7 @@ type PortfolioData = {
     location: string;
     linkedin: string;
     github: string;
-    leetcode: string;
+    codesandbox: string;
     codeforces: string;
   };
   education: string[];
@@ -163,12 +163,12 @@ export const portfolioData: PortfolioData = {
     location: "Ambala City, Haryana 134003, India",
     linkedin: "https://linkedin.com/in/tarush-chauhan-b91b8a256",
     github: "https://github.com/Tarushchauhan73",
-    leetcode: "https://leetcode.com/u/Tarushchauhan",
+    codesandbox: "https://codesandbox.io/dashboard/recent",
     codeforces: "https://codeforces.com/profile/tarushchauhan19",
   },
   education: [
     "B.E. in Computer Science Engineering, Chandigarh University, Mohali — Aug 2022 to Present | CGPA: 7.83/10",
-    "Senior Secondary Education, DAV Public School (CBSE), Ambala — 2021 to 2022 | Grade: 6.4/10",
+    "Senior Secondary Education, DAV Public School (CBSE), Ambala — 2021 to 2022 | Grade: 7.4/10",
     "Secondary Education, DAV Public School (CBSE), Ambala — 2019 to 2020 | GPA: 8.45/10",
   ],
   certifications: [

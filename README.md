@@ -84,7 +84,7 @@ GitHub Actions will build and deploy the site automatically.
 - Email: `tarushchauhan19@gmail.com`
 - LinkedIn: [linkedin.com/in/tarush-chauhan-b91b8a256](https://linkedin.com/in/tarush-chauhan-b91b8a256)
 - GitHub: [github.com/Tarushchauhan73](https://github.com/Tarushchauhan73)
-- LeetCode: [leetcode.com/u/Tarushchauhan](https://leetcode.com/u/Tarushchauhan)
+- CodeSandbox: [codesandbox.io/dashboard/recent](https://codesandbox.io/dashboard/recent)
 - Codeforces: [codeforces.com/profile/tarushchauhan19](https://codeforces.com/profile/tarushchauhan19)
 
 

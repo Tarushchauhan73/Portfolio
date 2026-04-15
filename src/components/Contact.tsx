@@ -53,13 +53,13 @@ const Contact = () => {
               LinkedIn <MdArrowOutward />
             </a>
             <a
-              href={portfolioData.contact.leetcode}
+              href={portfolioData.contact.codesandbox}
               target="_blank"
               rel="noreferrer"
               data-cursor="disable"
               className="contact-social"
             >
-              LeetCode <MdArrowOutward />
+              CodeSandbox <MdArrowOutward />
             </a>
             <a
               href={portfolioData.contact.codeforces}

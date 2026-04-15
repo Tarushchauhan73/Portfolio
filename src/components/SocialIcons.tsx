@@ -89,7 +89,7 @@ const SocialIcons = () => {
         </span>
         <span>
           <a
-            href={portfolioData.contact.leetcode}
+            href={portfolioData.contact.codesandbox}
             target="_blank"
             rel="noreferrer"
           >

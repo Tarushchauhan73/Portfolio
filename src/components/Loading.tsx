@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./styles/Loading.css";
 import { useLoading } from "../context/LoadingProvider";
-
 import Marquee from "react-fast-marquee";
 import { withBase } from "../utils/asset";
 
@@ -11,27 +10,55 @@ const Loading = ({ percent }: { percent: number }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [clicked, setClicked] = useState(false);
 
-  if (percent >= 100) {
-    setTimeout(() => {
+  useEffect(() => {
+    if (percent < 100 || loaded) {
+      return;
+    }
+
+    let isLoadedTimeout: number | undefined;
+    const loadedTimeout = window.setTimeout(() => {
       setLoaded(true);
-      setTimeout(() => {
+      isLoadedTimeout = window.setTimeout(() => {
         setIsLoaded(true);
       }, 1000);
     }, 600);
-  }
+
+    return () => {
+      window.clearTimeout(loadedTimeout);
+      if (isLoadedTimeout) {
+        window.clearTimeout(isLoadedTimeout);
+      }
+    };
+  }, [loaded, percent]);
 
   useEffect(() => {
+    if (!isLoaded) {
+      return;
+    }
+
+    let cancelled = false;
+    let transitionTimeout: number | undefined;
+
     import("./utils/initialFX").then((module) => {
-      if (isLoaded) {
-        setClicked(true);
-        setTimeout(() => {
-          if (module.initialFX) {
-            module.initialFX();
-          }
-          setIsLoading(false);
-        }, 900);
+      if (cancelled) {
+        return;
       }
+
+      setClicked(true);
+      transitionTimeout = window.setTimeout(() => {
+        if (module.initialFX) {
+          module.initialFX();
+        }
+        setIsLoading(false);
+      }, 900);
     });
+
+    return () => {
+      cancelled = true;
+      if (transitionTimeout) {
+        window.clearTimeout(transitionTimeout);
+      }
+    };
   }, [isLoaded]);
 
   function handleMouseMove(e: React.MouseEvent<HTMLElement>) {

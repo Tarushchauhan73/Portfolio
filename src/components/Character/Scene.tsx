@@ -17,13 +17,13 @@ const Scene = () => {
   const canvasDiv = useRef<HTMLDivElement | null>(null);
   const hoverDivRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef(new THREE.Scene());
+  const characterRef = useRef<THREE.Object3D | null>(null);
   const { setLoading } = useLoading();
-
-  const [character, setChar] = useState<THREE.Object3D | null>(null);
+  const [, setChar] = useState<THREE.Object3D | null>(null);
   useEffect(() => {
     if (canvasDiv.current) {
-      let rect = canvasDiv.current.getBoundingClientRect();
-      let container = { width: rect.width, height: rect.height };
+      const rect = canvasDiv.current.getBoundingClientRect();
+      const container = { width: rect.width, height: rect.height };
       const aspect = container.width / container.height;
       const scene = sceneRef.current;
 
@@ -32,7 +32,7 @@ const Scene = () => {
         antialias: true,
       });
       renderer.setSize(container.width, container.height);
-      renderer.setPixelRatio(window.devicePixelRatio);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 1;
       canvasDiv.current.appendChild(renderer.domElement);
@@ -46,19 +46,23 @@ const Scene = () => {
       let headBone: THREE.Object3D | null = null;
       let screenLight: any | null = null;
       let mixer: THREE.AnimationMixer;
+      let animationFrameId = 0;
+      let hoverCleanup: (() => void) | undefined;
 
       const clock = new THREE.Clock();
 
       const light = setLighting(scene);
-      let progress = setProgress((value) => setLoading(value));
+      const progress = setProgress((value) => setLoading(value));
       const { loadCharacter } = setCharacter(renderer, scene, camera);
 
       loadCharacter().then((gltf) => {
         if (gltf) {
           const animations = setAnimations(gltf);
-          hoverDivRef.current && animations.hover(gltf, hoverDivRef.current);
+          hoverCleanup =
+            hoverDivRef.current ? animations.hover(gltf, hoverDivRef.current) : undefined;
           mixer = animations.mixer;
-          let character = gltf.scene;
+          const character = gltf.scene;
+          characterRef.current = character;
           setChar(character);
           scene.add(character);
           headBone = character.getObjectByName("spine006") || null;
@@ -69,9 +73,6 @@ const Scene = () => {
               animations.startIntro();
             }, 2500);
           });
-          window.addEventListener("resize", () =>
-            handleResize(renderer, camera, canvasDiv, character)
-          );
         }
       });
 
@@ -85,10 +86,11 @@ const Scene = () => {
       const onTouchStart = (event: TouchEvent) => {
         const element = event.target as HTMLElement;
         debounce = setTimeout(() => {
-          element?.addEventListener("touchmove", (e: TouchEvent) =>
-            handleTouchMove(e, (x, y) => (mouse = { x, y }))
-          );
+          element?.addEventListener("touchmove", onTouchMove);
         }, 200);
+      };
+      const onTouchMove = (event: TouchEvent) => {
+        handleTouchMove(event, (x, y) => (mouse = { x, y }));
       };
 
       const onTouchEnd = () => {
@@ -97,17 +99,21 @@ const Scene = () => {
           interpolation = { x: interpolationX, y: interpolationY };
         });
       };
+      const onResize = () => {
+        if (characterRef.current) {
+          handleResize(renderer, camera, canvasDiv, characterRef.current);
+        }
+      };
 
-      document.addEventListener("mousemove", (event) => {
-        onMouseMove(event);
-      });
+      document.addEventListener("mousemove", onMouseMove);
       const landingDiv = document.getElementById("landingDiv");
       if (landingDiv) {
         landingDiv.addEventListener("touchstart", onTouchStart);
         landingDiv.addEventListener("touchend", onTouchEnd);
       }
+      window.addEventListener("resize", onResize);
       const animate = () => {
-        requestAnimationFrame(animate);
+        animationFrameId = requestAnimationFrame(animate);
         if (headBone) {
           handleHeadRotation(
             headBone,
@@ -128,18 +134,21 @@ const Scene = () => {
       animate();
       return () => {
         clearTimeout(debounce);
+        cancelAnimationFrame(animationFrameId);
+        hoverCleanup?.();
+        progress.clear();
+        characterRef.current = null;
         scene.clear();
         renderer.dispose();
-        window.removeEventListener("resize", () =>
-          handleResize(renderer, camera, canvasDiv, character!)
-        );
+        window.removeEventListener("resize", onResize);
         if (canvasDiv.current) {
           canvasDiv.current.removeChild(renderer.domElement);
         }
+        document.removeEventListener("mousemove", onMouseMove);
         if (landingDiv) {
-          document.removeEventListener("mousemove", onMouseMove);
           landingDiv.removeEventListener("touchstart", onTouchStart);
           landingDiv.removeEventListener("touchend", onTouchEnd);
+          landingDiv.removeEventListener("touchmove", onTouchMove);
         }
       };
     }

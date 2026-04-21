@@ -29,11 +29,13 @@ const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
 const spheres = [...Array(30)].map(() => ({
   scale: [0.7, 1, 0.8, 1, 1][Math.floor(Math.random() * 5)],
+  materialIndex: Math.floor(Math.random() * imageUrls.length),
 }));
 
 type SphereProps = {
   vec?: THREE.Vector3;
   scale: number;
+  materialIndex: number;
   r?: typeof THREE.MathUtils.randFloatSpread;
   material: THREE.MeshPhysicalMaterial;
   isActive: boolean;
@@ -127,29 +129,27 @@ function Pointer({ vec = new THREE.Vector3(), isActive }: PointerProps) {
 
 const TechStack = () => {
   const [isActive, setIsActive] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY || document.documentElement.scrollTop;
-      const threshold = document
-        .getElementById("work")!
-        .getBoundingClientRect().top;
-      setIsActive(scrollY > threshold);
-    };
-    document.querySelectorAll(".header a").forEach((elem) => {
-      const element = elem as HTMLAnchorElement;
-      element.addEventListener("click", () => {
-        const interval = setInterval(() => {
-          handleScroll();
-        }, 10);
-        setTimeout(() => {
-          clearInterval(interval);
-        }, 1000);
-      });
-    });
-    window.addEventListener("scroll", handleScroll);
+    const container = containerRef.current;
+    if (!container) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsActive(entry.isIntersecting);
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    observer.observe(container);
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
     };
   }, []);
   const materials = useMemo(() => {
@@ -167,15 +167,25 @@ const TechStack = () => {
     );
   }, []);
 
+  useEffect(() => {
+    return () => {
+      materials.forEach((material) => material.dispose());
+    };
+  }, [materials]);
+
   return (
-    <div className="techstack">
+    <div className="techstack" ref={containerRef}>
       <h2> My Toolkit</h2>
 
       <Canvas
+        dpr={[1, 1.5]}
         shadows
         gl={{ alpha: true, stencil: false, depth: false, antialias: false }}
         camera={{ position: [0, 0, 20], fov: 32.5, near: 1, far: 100 }}
-        onCreated={(state) => (state.gl.toneMappingExposure = 1.5)}
+        onCreated={(state) => {
+          state.gl.toneMappingExposure = 1.5;
+          state.gl.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+        }}
         className="tech-canvas"
       >
         <ambientLight intensity={1} />
@@ -194,7 +204,7 @@ const TechStack = () => {
             <SphereGeo
               key={i}
               {...props}
-              material={materials[Math.floor(Math.random() * materials.length)]}
+              material={materials[props.materialIndex]}
               isActive={isActive}
             />
           ))}

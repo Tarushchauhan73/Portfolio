@@ -15,21 +15,28 @@ const Loading = ({ percent }: { percent: number }) => {
       return;
     }
 
-    let isLoadedTimeout: number | undefined;
     const loadedTimeout = window.setTimeout(() => {
       setLoaded(true);
-      isLoadedTimeout = window.setTimeout(() => {
-        setIsLoaded(true);
-      }, 1000);
     }, 600);
 
     return () => {
       window.clearTimeout(loadedTimeout);
-      if (isLoadedTimeout) {
-        window.clearTimeout(isLoadedTimeout);
-      }
     };
   }, [loaded, percent]);
+
+  useEffect(() => {
+    if (!loaded || isLoaded) {
+      return;
+    }
+
+    const isLoadedTimeout = window.setTimeout(() => {
+      setIsLoaded(true);
+    }, 1000);
+
+    return () => {
+      window.clearTimeout(isLoadedTimeout);
+    };
+  }, [isLoaded, loaded]);
 
   useEffect(() => {
     if (!isLoaded) {

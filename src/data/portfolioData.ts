@@ -168,8 +168,8 @@ export const portfolioData: PortfolioData = {
   },
   education: [
     "B.E. in Computer Science Engineering, Chandigarh University, Mohali — Aug 2022 to Present | CGPA: 7.83/10",
-    "Senior Secondary Education, DAV Public School (CBSE), Ambala — 2021 to 2022 | Grade: 7.4/10",
-    "Secondary Education, DAV Public School (CBSE), Ambala — 2019 to 2020 | GPA: 8.45/10",
+    "Senior Secondary Education, DAV Public School (CBSE), Ambala — 2021 to 2022",
+    "Secondary Education, DAV Public School (CBSE), Ambala — 2019 to 2020",
   ],
   certifications: [
     "Oracle Professional Certificate",

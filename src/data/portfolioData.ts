@@ -59,7 +59,7 @@ export const portfolioData: PortfolioData = {
     secondary: "Cloud",
   },
   about:
-    "DevOps-focused engineer with hands-on experience designing CI/CD pipelines, containerizing applications with Docker, and deploying services across AWS, Azure, and GCP. Skilled in Python, Flask, REST API development, Kubernetes fundamentals, and infrastructure automation, with a track record of cutting deployment time and improving release reliability.",
+    "DevOps-focused engineer with hands-on experience designing CI/CD pipelines, containerizing applications with Docker, and deploying services across AWS, Azure, and GCP. Skilled in Python, Flask, REST API development, Kubernetes fundamentals, and infrastructure automation. Proven track record of cutting deployment time, improving release reliability, and orchestrating scalable multi-instance deployments.",
   focusAreas: [
     {
       title: "DEVOPS & CI/CD",

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">3D Car Animation Project</title>
+  <desc id="desc">A dark neon project cover for a Blender-based car animation scene.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f19"/>
+      <stop offset="50%" stop-color="#141f33"/>
+      <stop offset="100%" stop-color="#0f3b46"/>
+    </linearGradient>
+    <linearGradient id="car" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#5eead4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#bg)"/>
+  <text x="88" y="132" fill="#93c5fd" font-size="22" font-family="Arial, sans-serif" letter-spacing="5">BLENDER PROJECT</text>
+  <text x="88" y="220" fill="#ffffff" font-size="62" font-family="Arial, sans-serif" font-weight="700">3D Car</text>
+  <text x="88" y="294" fill="#ffffff" font-size="62" font-family="Arial, sans-serif" font-weight="700">Animation</text>
+  <text x="88" y="366" fill="#cad8e5" font-size="24" font-family="Arial, sans-serif">Modeling, texturing, keyframing, and shader editing</text>
+  <path d="M660 430 L730 350 H938 L1018 430" fill="none" stroke="url(#car)" stroke-width="10" stroke-linecap="round"/>
+  <path d="M640 446 H1040" fill="none" stroke="#dbeafe" stroke-width="6" stroke-linecap="round" opacity="0.35"/>
+  <circle cx="744" cy="446" r="42" fill="#0b1320" stroke="#67e8f9" stroke-width="8"/>
+  <circle cx="948" cy="446" r="42" fill="#0b1320" stroke="#67e8f9" stroke-width="8"/>
+  <rect x="688" y="308" width="310" height="170" rx="28" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.12)"/>
+  <rect x="724" y="340" width="120" height="56" rx="16" fill="rgba(56,189,248,0.18)"/>
+  <rect x="860" y="340" width="98" height="56" rx="16" fill="rgba(94,234,212,0.18)"/>
+</svg>

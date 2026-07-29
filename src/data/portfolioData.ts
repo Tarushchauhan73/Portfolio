@@ -144,6 +144,14 @@ export const portfolioData: PortfolioData = {
       image: "/images/project-promotion.svg",
       link: "https://github.com/Tarushchauhan73",
     },
+    {
+      title: "Offline-First Attendance & Assignment System",
+      category: "Offline-First Web App & Containerization",
+      tools:
+        "React 19, TypeScript, Vite, IndexedDB, Express, Docker, Docker Compose, Nginx, GitHub Actions",
+      image: "/images/project-healthcare.svg",
+      link: "https://github.com/Tarushchauhan73/Offline-First-Attendance-Assignment-System",
+    },
   ],
   contact: {
     email: "tarushchauhan19@gmail.com",
